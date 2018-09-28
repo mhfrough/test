@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Departments
-                  <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
-              </h1>
+                    <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
+                </h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -13,78 +13,81 @@
         <div class="row">
             <div class="col-lg-12">
 
-                    <div *ngFor="let alert of alerts">
-                        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{ alert.msg }} 
-                                <u (click)="reload()">Click here to reload data</u>.
-                        </alert>
-                    </div>
-                  
-                    <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Add New Department</h3>
-                                
-                            </div>
-                            <div class="panel-body">
-                                <form role="form" (submit)="onSubmit($event)">
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="Department Name" [(ngModel)]="name" value="{{name}}" type="text" id="deptName" autofocus>
-                                        </div>
+                <div *ngFor="let alert of alerts">
+                    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{
+                        alert.msg }}
+                        <u (click)="reload()">Click here to reload data</u>.
+                    </alert>
+                </div>
 
-                                        <button type="submit" id="submit" class="btn btn-default" [disabled]="isDisabled">Submit</button> || 
-                                        <button type="reset" class="btn btn-default">Reset</button>
-                                    </fieldset>
-                                </form>
-                            </div>
-              
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add New Department</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" (submit)="onSubmit($event)">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Department Name" [(ngModel)]="name" value="{{name}}"
+                                        type="text" id="deptName" autofocus>
+                                </div>
+
+                                <button type="submit" id="submit" class="btn btn-default" [disabled]="isDisabled">Submit</button>
+                                ||
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Employees List
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default btn-xs" (click)="reload()"><i class="fa fa-refresh fa-fw"></i>
+                                Reload</button>
                         </div>
-  
-                  <div class="panel panel-default">
-                          <div class="panel-heading">
-                              Employees List
-                              <div class="pull-right">
-                                <button type="button" class="btn btn-default btn-xs" (click)="reload()"><i class="fa fa-refresh fa-fw"></i> Reload</button>
-                            </div>
-                            </div>
-                          
-                          <!-- /.panel-heading -->
-                          <div class="panel-body">
-                              <div class="table-responsive">
-                                  <table class="table">
-                                      <thead>
-                                          <tr>
-                                              <th>#</th>
-                                              <th>Department Namep</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <div class="text-center"><app-loading *ngIf="isLoading"></app-loading></div>
-                                          
-                                          <tr *ngFor="let item of _dept.deptList; index as i">
-                                              <td>{{i+1}}</td>
-                                              <td>{{item.name}}</td>
-                                              <td></td>
-                                              <td>
-                                                  <button type="button" class="btn btn-primary btn-outline btn-xs"
-                                                    (click)="onUpdate(item.id, item.name)"><a href="/department/departments#page-wrapper">Update</a></button> || 
-                                                  <button type="button" class="btn btn-danger btn-outline btn-xs"
-                                                   (click)="onDelete(item.id)">Delete</button>
-                                                  
-                                              </td>
-                                              
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                              <!-- /.table-responsive -->
-                          </div>
-                          <!-- /.panel-body -->
-                      </div>
-                          <!-- /.panel -->
-              </div>
+                    </div>
+
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Department Namep</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div class="text-center">
+                                        <app-loading *ngIf="isLoading"></app-loading>
+                                    </div>
+
+                                    <tr *ngFor="let item of _dept.deptList; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-outline btn-xs" (click)="onUpdate(item.id, item.name)"><a
+                                                    href="/department/departments#page-wrapper">Update</a></button> ||
+                                            <button type="button" class="btn btn-danger btn-outline btn-xs" (click)="onDelete(item.id)">Delete</button>
+
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
         </div>
     </div>
     <!-- /.container-fluid -->
-  </div>
-
-  
+</div>

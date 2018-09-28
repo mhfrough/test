@@ -23,13 +23,13 @@ export class ProjectsComponent implements OnInit {
 
   alerts: any[] = [];
   isLoading: boolean = false;
-  // isDisabled: boolean = false;
+  isDisabled: boolean = true;
 
-  constructor(private _proj: ProjectsService,
-    private _cat: CategoriesService,
-    private _dept: DepartmentsService,
-    private _emp: EmployeesService,
-    private _desig: DesignationsService) { }
+  constructor(public _proj: ProjectsService,
+    public _cat: CategoriesService,
+    public _dept: DepartmentsService,
+    public _emp: EmployeesService,
+    public _desig: DesignationsService) { }
 
   ngOnInit() {
     this._dept.getDept(localStorage.getItem('companyID'));

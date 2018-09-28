@@ -22,12 +22,11 @@ export class CategoryComponent implements OnInit {
   isLoading: boolean = false;
   isDisabled: boolean = false;
 
-  constructor(private _cat: CategoriesService,
-    private _dept: DepartmentsService) { }
+  constructor(public _cat: CategoriesService,
+    public _dept: DepartmentsService) { }
 
   ngOnInit() {
     this._dept.getDept(localStorage.getItem('companyID'));
-    console.log(this._cat.catList);
     this.getAllCat();
   }
 

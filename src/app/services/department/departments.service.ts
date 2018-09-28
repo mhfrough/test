@@ -9,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 export class DepartmentsService {
 
   apiURL: String = 'https://arcmines.com/codexmatrix/public/api';
-  deptList: String[] = [];
+  deptList: any[] = [];
   constructor(private http: HttpClient,
     private router: Router) { }
 
   getDept(data: String) {
+    console.log("Get Department");
     this.deptList = [];
-    console.log(1);
     return this.http.get<any>(this.apiURL + '/get-departments?companyId=' + data
     ).subscribe(res => {
       res.data.forEach(element => {
@@ -27,13 +27,13 @@ export class DepartmentsService {
   createDept(data: DeptRequest) {
     return this.http.post<any>(this.apiURL + '/create-department', data);
   }
-  
+
   updateDept(data: DeptPut) {
     return this.http.post<any>(this.apiURL + '/update-department', data);
   }
-  
+
   deleteDept(data: DeptDelete) {
     return this.http.post<any>(this.apiURL + '/delete-department', data);
   }
-  
+
 }

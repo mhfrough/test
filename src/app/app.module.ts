@@ -27,6 +27,7 @@ import { LoadingComponent } from './components/widgets/loading/loading.component
 import { DesignationComponent } from './components/designation/designation.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SkillsComponent } from './components/skill/skills/skills.component';
+import { EmployeesListComponent } from './components/employee/employees-list/employees-list.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SkillsComponent } from './components/skill/skills/skills.component';
     DesignationComponent,
     CategoryComponent,
     SkillsComponent,
+    EmployeesListComponent,
   ],
   imports: [
     BrowserModule,

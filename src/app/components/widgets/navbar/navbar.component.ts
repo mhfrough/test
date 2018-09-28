@@ -10,9 +10,9 @@ import { AuthenticationService } from '../../../services/auth/authentication.ser
 })
 export class NavbarComponent implements OnInit {
   isDisabled: boolean = true;
-  constructor(private nav: NavbarService,
-    private navTitle: AppComponent,
-    private auth: AuthenticationService) { }
+  constructor(public nav: NavbarService,
+    public navTitle: AppComponent,
+    public auth: AuthenticationService) { }
 
   ngOnInit() {
   }

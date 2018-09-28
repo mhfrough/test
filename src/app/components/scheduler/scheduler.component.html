@@ -3,248 +3,256 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                  <h1 class="page-header">Teachers Schedular
-                      <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
-                  </h1>
+                <h1 class="page-header">Teachers Schedular
+                    <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
+                </h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
-                  
-                      <div class="well">
-                          <h4>Add New Project</h4>
-                          <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                          <a class="btn btn-default btn-lg btn-block" (click)="lgModal.show()">Create New Project</a>
-                      </div>
-  
-                      <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
-                role="dialog" aria-labelledby="dialog-sizes-name1">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Enter Employee Details</h4>
-                        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- pop-up start -->
 
-                        <tabset [justified]="true">
-                            <tab heading="Create Project">
-                                <br/>
-<!-- form start -->
-
-<form role="form">
-<fieldset>
-<div class="row">
-    <div class="col-lg-8">
-        <div class="form-group">
-            <input class="form-control" placeholder="Project Name" name="emp_name" type="name" autofocus>
-        </div>
-    </div>
-    <div class="col-lg-4">
-            <div class="form-group">
-                    <select class="form-control" id="exampleFormControlSelect1">
-               
-                        <option selected>Type/ Cetegory...</option>
-                        <option value="1">Networking</option>
-                        <option value="2">DataBase</option>
-                        <option value="3">SQA</option>
-                      </select>
+                <div class="well">
+                    <h4>Add New Project</h4>
+                    <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a
+                        specialized version of DataTables built for Bootstrap 3. We have also customized the table
+                        headings to use Font Awesome icons in place of images. For complete documentation on
+                        DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
+                    <a class="btn btn-default btn-lg btn-block" (click)="lgModal.show()">Create New Project</a>
                 </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-    </div>
-    
-</div>
 
-<br/>
-<div class="algin-right">
-    <div class="form-group">
-        <a class="btn btn-lg btn-default" role="button">Submit</a> || 
-        <a class="btn btn-lg btn-primary" role="button">Next</a>
-    </div>
-</div>
-<br/>
-    <small><strong>Don't have an account? </strong>Click here to <a routerLink="/auth/register">register</a></small>
-</fieldset>
-</form>
+                <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 id="dialog-sizes-name1" class="modal-title pull-left">Enter Employee Details</h4>
+                                <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- pop-up start -->
 
-<!-- form end -->
-                            </tab>
-                            <tab heading="Assign Employees"><br/>
-                                <form role="form">
-                                        <fieldset>
-                                            <div class="row">
-                                                <div class="col-lg-8">
-                                                    <div class="form-group">
-                                                        <input class="form-control" placeholder="Project Name" name="emp_name" type="name" autofocus>
+                                <tabset [justified]="true">
+                                    <tab heading="Create Project">
+                                        <br />
+                                        <!-- form start -->
+
+                                        <form role="form">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Project Name" name="emp_name"
+                                                                type="name" autofocus>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+
+                                                                <option selected>Type/ Cetegory...</option>
+                                                                <option value="1">Networking</option>
+                                                                <option value="2">DataBase</option>
+                                                                <option value="3">SQA</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
-                                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                           
-                                                                    <option selected>Postion...</option>
-                                                                    <option value="1">C.E.O.</option>
-                                                                    <option value="2">Director</option>
-                                                                    <option value="3">Regional Manager</option>
-                                                                    <option value="4">Staff Member</option>
-                                                                    <option value="5">Other</option>
-                                                                  </select>
-                                                            </div>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                                rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                            </div>
-                                        
-                                            <br/>
-                                            <div class="algin-right">
-                                                <div class="form-group">
-                                                    <a class="btn btn-lg btn-default" role="button">Submit</a> || 
-                                                    <a class="btn btn-lg btn-primary" role="button">Next</a>
+
+                                                <br />
+                                                <div class="algin-right">
+                                                    <div class="form-group">
+                                                        <a class="btn btn-lg btn-default" role="button">Submit</a> ||
+                                                        <a class="btn btn-lg btn-primary" role="button">Next</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <br/>
-                                                <small><strong>Don't have an account? </strong>Click here to <a routerLink="/auth/register">register</a></small>
-                                        </fieldset>
+                                                <br />
+                                                <small><strong>Don't have an account? </strong>Click here to <a
+                                                        routerLink="/auth/register">register</a></small>
+                                            </fieldset>
                                         </form>
-                            </tab>
-                            <tab heading="Assign Task"><br/>
-                                <form role="form">
-                                        <fieldset>
-                                           
-                                            <div class="row">
-                                              <div class="col-lg-12">
-                                                  <div class="form-group">
-                                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                  </div>
-                                              </div>
-                                            </div>
-                  
-                                            <div class="row">
-                                              <div class="col-lg-4">
-                                                  <div class="form-group">
-                                                      <input class="form-control" placeholder="Employee Name" name="emp_name" type="date" autofocus>
-                                                  </div>
-                                              </div>
-                                              <div class="col-lg-4">
-                                                  <div class="form-group">
-                                                      <select class="form-control" id="exampleFormControlSelect1" disabled>
-                                                 
-                                                          <option selected>Priority...</option>
-                                                          <option value="1">Low</option>
-                                                          <option value="2">Medium</option>
-                                                          <option value="3">High</option>
-                                                        </select>
-                                                  </div>
-                                              </div>
-                                              <div class="col-lg-4">
-                                                  <div class="form-group">
-                                                      <select class="form-control" id="exampleFormControlSelect1">
-                                                 
-                                                          <option selected>Type/ Cetegory...</option>
-                                                          <option value="1">Networking</option>
-                                                          <option value="2">DataBase</option>
-                                                          <option value="3">SQA</option>
-                                                        </select>
-                                                  </div>
-                                              </div>
-                                            </div>
-                  
-                                            <br/>
-                                            <div class="algin-right">
-                                                <div class="form-group">
-                                                    <a class="btn btn-lg btn-default" role="button">Submit</a>
+
+                                        <!-- form end -->
+                                    </tab>
+                                    <tab heading="Assign Employees"><br />
+                                        <form role="form">
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Project Name" name="emp_name"
+                                                                type="name" autofocus>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+
+                                                                <option selected>Postion...</option>
+                                                                <option value="1">C.E.O.</option>
+                                                                <option value="2">Director</option>
+                                                                <option value="3">Regional Manager</option>
+                                                                <option value="4">Staff Member</option>
+                                                                <option value="5">Other</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <br/>
-                                                <small><strong>Don't have an account? </strong>Click here to <a routerLink="/auth/register">register</a></small>
-                                        </fieldset>
-                                    </form>
-                            </tab>
-                        </tabset>
-                            
-                        
-                        <!-- pop-up end -->
-                    </div>
+
+                                                <br />
+                                                <div class="algin-right">
+                                                    <div class="form-group">
+                                                        <a class="btn btn-lg btn-default" role="button">Submit</a> ||
+                                                        <a class="btn btn-lg btn-primary" role="button">Next</a>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <small><strong>Don't have an account? </strong>Click here to <a
+                                                        routerLink="/auth/register">register</a></small>
+                                            </fieldset>
+                                        </form>
+                                    </tab>
+                                    <tab heading="Assign Task"><br />
+                                        <form role="form">
+                                            <fieldset>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                                rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Employee Name"
+                                                                name="emp_name" type="date" autofocus>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                                disabled>
+
+                                                                <option selected>Priority...</option>
+                                                                <option value="1">Low</option>
+                                                                <option value="2">Medium</option>
+                                                                <option value="3">High</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+
+                                                                <option selected>Type/ Cetegory...</option>
+                                                                <option value="1">Networking</option>
+                                                                <option value="2">DataBase</option>
+                                                                <option value="3">SQA</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <br />
+                                                <div class="algin-right">
+                                                    <div class="form-group">
+                                                        <a class="btn btn-lg btn-default" role="button">Submit</a>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <small><strong>Don't have an account? </strong>Click here to <a
+                                                        routerLink="/auth/register">register</a></small>
+                                            </fieldset>
+                                        </form>
+                                    </tab>
+                                </tabset>
+
+
+                                <!-- pop-up end -->
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Project List
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Profile</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>
+
+                                            <button type="button" class="btn btn-primary btn-outline btn-xs" routerLink="/employee/employee-details">View</button>
+                                            ||
+                                            <button type="button" class="btn btn-danger btn-outline btn-xs" routerLink="/employee/employee-details">Delete</button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>
+
+                                            <button type="button" class="btn btn-primary btn-outline btn-xs" routerLink="/employee/employee-details">View</button>
+                                            ||
+                                            <button type="button" class="btn btn-danger btn-outline btn-xs" routerLink="/employee/employee-details">Delete</button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>
+
+                                            <button type="button" class="btn btn-primary btn-outline btn-xs" routerLink="/employee/employee-details">View</button>
+                                            ||
+                                            <button type="button" class="btn btn-danger btn-outline btn-xs" routerLink="/employee/employee-details">Delete</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
             </div>
-  
-                      <div class="panel panel-default">
-                              <div class="panel-heading">
-                                  Project List
-                              </div>
-                              <!-- /.panel-heading -->
-                              <div class="panel-body">
-                                  <div class="table-responsive">
-                                      <table class="table">
-                                          <thead>
-                                              <tr>
-                                                  <th>#</th>
-                                                  <th>First Name</th>
-                                                  <th>Last Name</th>
-                                                  <th>Profile</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody>
-                                              <tr>
-                                                  <td>1</td>
-                                                  <td>Mark</td>
-                                                  <td>Otto</td>
-                                                  <td>
-                                                     
-                                                      <button type="button" class="btn btn-primary btn-outline btn-xs"
-                                                       routerLink="/employee/employee-details">View</button>  || 
-                                                      <button type="button" class="btn btn-danger btn-outline btn-xs" 
-                                                       routerLink="/employee/employee-details">Delete</button>
-                                                      
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>2</td>
-                                                  <td>Jacob</td>
-                                                  <td>Thornton</td>
-                                                  <td>
-                                                     
-                                                          <button type="button" class="btn btn-primary btn-outline btn-xs"
-                                                           routerLink="/employee/employee-details">View</button>  || 
-                                                          <button type="button" class="btn btn-danger btn-outline btn-xs" 
-                                                           routerLink="/employee/employee-details">Delete</button>
-                                                          
-                                                      </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3</td>
-                                                  <td>Larry</td>
-                                                  <td>the Bird</td>
-                                                  <td>
-                                                     
-                                                          <button type="button" class="btn btn-primary btn-outline btn-xs"
-                                                           routerLink="/employee/employee-details">View</button>  || 
-                                                          <button type="button" class="btn btn-danger btn-outline btn-xs" 
-                                                           routerLink="/employee/employee-details" (click)="openModal(template)">Delete</button>
-                                                          
-                                                      </td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                                  <!-- /.table-responsive -->
-                              </div>
-                              <!-- /.panel-body -->
-                          </div>
-                          <!-- /.panel -->
-            
-              </div>
         </div>
     </div>
     <!-- /.container-fluid -->
-  </div>
+</div>

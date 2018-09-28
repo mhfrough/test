@@ -17,8 +17,7 @@ export class DesignationComponent implements OnInit {
   isLoading: boolean = false;
   isDisabled: boolean = false;
 
-  constructor(private nav: NavbarService,
-    private _desig: DesignationsService) { }
+  constructor(public _desig: DesignationsService) { }
 
   ngOnInit() {
     this.getAllDesig();

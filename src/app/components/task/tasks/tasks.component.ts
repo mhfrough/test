@@ -3,6 +3,7 @@ import { TaskReq } from '../../../interfaces/task';
 import { TasksService } from '../../../services/task/tasks.service';
 import { ProjectsService } from '../../../services/project/projects.service';
 import { DepartmentsService } from '../../../services/department/departments.service';
+import { SkillsService } from '../../../services/skill/skills.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,11 +13,13 @@ import { DepartmentsService } from '../../../services/department/departments.ser
 export class TasksComponent implements OnInit {
 
   taskReq: TaskReq;
+  selectedSkills: any[];
 
   alerts: any[] = [];
-  constructor(private _task: TasksService,
-    private _proj: ProjectsService,
-    private _dept: DepartmentsService) { }
+  constructor(public _task: TasksService,
+    public _proj: ProjectsService,
+    public _dept: DepartmentsService,
+    public _skill: SkillsService) { }
 
   ngOnInit() {
     this._dept.getDept(localStorage.getItem('companyID'));
@@ -25,11 +28,20 @@ export class TasksComponent implements OnInit {
   onChange(data) {
     console.log(data);
     this._proj.getProj(data);
+    this._skill.getSkill(data);
+  }
+
+  clickedOption() {
+    console.log(this.selectedSkills)
   }
 
   onSubmit(event) {
+
+    
     event.preventDefault();
     const target = event.target;
+
+console.log(this.selectedSkills.toString());
 
     this.taskReq = {
       projId: target.querySelector('#projId').value,
@@ -37,7 +49,7 @@ export class TasksComponent implements OnInit {
       description: target.querySelector('#taskDes').value,
       estimated_time: target.querySelector('#date').value,
       priority: target.querySelector('#priority').value,
-      required_skills: target.querySelector('#skill').value
+      required_skills: this.selectedSkills.toString()
     }
 
     this._task.createTask(this.taskReq).subscribe(res => {

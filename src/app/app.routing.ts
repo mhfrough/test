@@ -17,6 +17,8 @@ import { DepartmentsComponent } from './components/department/departments/depart
 import { DesignationComponent } from './components/designation/designation.component';
 import { CategoriesService } from './services/category/categories.service';
 import { CategoryComponent } from './components/category/category.component';
+import { EmployeesListComponent } from './components/employee/employees-list/employees-list.component';
+import { SkillsComponent } from './components/skill/skills/skills.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'project/project-details', component: ProjectDetailsComponent },
   { path: 'employee/employees', component: EmployeesComponent},
   { path: 'employee/employee-details/:id', component: EmployeeDetailsComponent },
+  { path: 'employee/employees-list', component: EmployeesListComponent },
   { path: 'task/tasks', component: TasksComponent },
   { path: 'task/tasks-list', component: TasksListComponent},
   { path: 'task/task-details', component: TaskDetailsComponent },
@@ -35,6 +38,7 @@ const routes: Routes = [
   { path: 'department/departments', component: DepartmentsComponent },
   { path: 'designation', component: DesignationComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'skill', component: SkillsComponent},
 ];
 
 @NgModule({

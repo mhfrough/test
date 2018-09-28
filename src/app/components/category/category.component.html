@@ -1,102 +1,106 @@
 <!-- Page Content -->
 <div id="page-wrapper">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-12">
-              <h1 class="page-header">Category
-                <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
-            </h1>
-          </div>
-          <!-- /.col-lg-12 -->
-      </div>
-      <!-- /.row -->
-      <div class="row">
-          <div class="col-lg-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Category
+                    <!-- <button type="button" class="btn btn-link pull-right" (click)="goBack()">← go back to previous page</button> -->
+                </h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
 
-                  <div *ngFor="let alert of alerts">
-                      <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{ alert.msg }} 
-                              <u (click)="reload()">Click here to reload data</u>.
-                      </alert>
-                  </div>
-                
-                  <div class="panel panel-default">
-                          <div class="panel-heading">
-                              <h3 class="panel-title">Add New Category</h3>
-                              
-                          </div>
-                          <div class="panel-body">
-                              <form role="form" (submit)="onSubmit($event)">
-                                  <fieldset>
-                                      <div class="row">
-                                          <div class="col-lg-8">
-                                      <div class="form-group">
-                                          <input class="form-control" placeholder="Category Name" type="text" id="catName" autofocus>
-                                      </div>
+                <div *ngFor="let alert of alerts">
+                    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{
+                        alert.msg }}
+                        <u (click)="reload()">Click here to reload data</u>.
+                    </alert>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add New Category</h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" (submit)="onSubmit($event)">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Category Name" type="text" id="catName"
+                                                autofocus>
+                                        </div>
                                     </div>
-<div class="col-lg-4">
-                                      <div class="form-group">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
                                             <select class="form-control" id="deptName">
                                                 <option *ngFor="let item of _dept.deptList" value="{{item.id}}">
                                                     {{item.name}}
                                                 </option>
                                             </select>
                                             <small>Select department</small>
-                                          </div>  
                                         </div>
                                     </div>
+                                </div>
 
-                                      <button type="submit" id="submit" class="btn btn-default" [disabled]="isDisabled">Submit</button> || 
-                                      <button type="reset" class="btn btn-default">Reset</button>
-                                  </fieldset>
-                              </form>
-                          </div>
-            
-                      </div>
-
-                <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Category List
-                            <div class="pull-right">
-                              <button type="button" class="btn btn-default btn-xs" (click)="reload()"><i class="fa fa-refresh fa-fw"></i> Reload</button>
-                          </div>
-                          </div>
-                        
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Category Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <div class="text-center"><app-loading *ngIf="isLoading"></app-loading></div>
-                                        
-                                        <tr *ngFor="let item of _cat.catList; index as i">
-                                            <td>{{i+1}}</td>
-                                            <td>{{item.name}}</td>
-                                            <td></td>
-                                            <td>
-                                                <!-- <button type="button" class="btn btn-primary btn-outline btn-xs"
-                                                  (click)="onUpdate(item.id, item.name)"><a href="/department/departments#page-wrapper">Update</a></button> || 
-                                                <button type="button" class="btn btn-danger btn-outline btn-xs"
-                                                 (click)="onDelete(item.id)">Delete</button> -->
-                                                
-                                            </td>
-                                            
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
+                                <button type="submit" id="submit" class="btn btn-default" [disabled]="isDisabled">Submit</button>
+                                ||
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </fieldset>
+                        </form>
                     </div>
-                        <!-- /.panel -->
+                </div>
+
+
+                <!-- /.panel-heading -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Category List
+                        <div class="pull-right">
+                            <select class="custom-select custom-select-sm" id="deptId" (change)="onChange($event.target.value)">
+                                <option>Department...</option>
+                                <option *ngFor="let item of _dept.deptList" value="{{item.id}}">
+                                    {{item.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of _cat.catList; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.name}}
+
+                                        </td>
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-primary btn-outline btn-xs"
+                                                        routerLink="/employee/employee-details/{{employee.id}}">View</button> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
             </div>
-      </div>
-  </div>
-  <!-- /.container-fluid -->
+        </div>
+    </div>
+    <!-- /.container-fluid -->
 </div>

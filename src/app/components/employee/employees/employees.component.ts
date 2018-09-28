@@ -28,10 +28,10 @@ export class EmployeesComponent implements OnInit {
   isLoading: boolean = false;
   isDisabled: boolean = false;
 
-  constructor(private _emp: EmployeesService,
-    private _dept: DepartmentsService,
-    private _role: RolesService,
-    private _desig: DesignationsService) { }
+  constructor(public _emp: EmployeesService,
+    public _dept: DepartmentsService,
+    public _role: RolesService,
+    public _desig: DesignationsService) { }
 
   ngOnInit() {
     this._dept.getDept(localStorage.getItem('companyID'));

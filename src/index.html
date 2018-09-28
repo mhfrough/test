@@ -1,40 +1,71 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Fyp</title>
-  <base href="/">
+    <meta charset="utf-8">
+    <title>Fyp</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vendor/metisMenu/metisMenu.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/metisMenu/metisMenu.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
 
-  <!-- jQuery -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <!-- Metis Menu Plugin JavaScript -->
-  <script src="assets/vendor/metisMenu/metisMenu.min.css"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/vendor/metisMenu/metisMenu.min.css"></script>
 
-  <!-- Custom Theme JavaScript -->
-  <script src="assets/dist/js/sb-admin-2.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
 
-  <script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
+
+    <script type="text/javascript">
+        var expanded = false;
+
+        function showCheckboxes() {
+            var checkboxes = document.getElementById("checkboxes");
+            if (!expanded) {
+                checkboxes.style.display = "block";
+                expanded = true;
+            } else {
+                checkboxes.style.display = "none";
+                expanded = false;
+            }
+        }
+    </script>
+
+    <!-- DataTables JavaScript -->
+    <!-- <script src="assets/vendor/datatables/js//jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+        </script> -->
 </body>
+
 </html>

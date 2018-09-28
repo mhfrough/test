@@ -23,8 +23,7 @@ export class DepartmentsComponent implements OnInit {
   isLoading: boolean = false;
   isDisabled: boolean = false;
 
-  constructor(private nav: NavbarService,
-    private _dept: DepartmentsService) { }
+  constructor(public _dept: DepartmentsService) { }
 
   ngOnInit() {
     this.getAllDept();
@@ -50,6 +49,9 @@ export class DepartmentsComponent implements OnInit {
         name: target.querySelector('#deptName').value,
         companyId: localStorage.getItem('companyID')
       }
+
+      this._dept.deptList.push(this.deptRequest);
+      console.log(this._dept.deptList);
 
       this._dept.createDept(this.deptRequest).subscribe(res => {
         if(res.status == 1) {
@@ -96,7 +98,7 @@ export class DepartmentsComponent implements OnInit {
     this.isLoading = false;
     this.isDisabled = false;
 
-    this.getAllDept();
+    // this.getAllDept();
   }
 
   onUpdate(id: String, name: String) {
@@ -106,9 +108,11 @@ export class DepartmentsComponent implements OnInit {
   }
 
   onDelete(id: String) {
+    
     this.deptDelete = {
       id: id
     }
+
     this._dept.deleteDept(this.deptDelete).subscribe(res => {
       // Department Deleted
       this.alerts.push({
