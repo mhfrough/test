@@ -51,6 +51,7 @@ export class DesignationComponent implements OnInit {
           timeout: 5000
         });
       } else {
+        console.log(res);
         this.alerts.push({
           type: 'warning',
           msg: `${res.message}`,

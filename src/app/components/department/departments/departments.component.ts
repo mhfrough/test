@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarService } from '../../../services/navbar/navbar.service';
 import { DeptRequest, DeptPut, DeptDelete } from '../../../interfaces/department';
 import { DepartmentsService } from '../../../services/department/departments.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-departments',
@@ -13,17 +13,23 @@ export class DepartmentsComponent implements OnInit {
   deptRequest: DeptRequest;
   deptPut: DeptPut;
   deptDelete: DeptDelete;
-  
-  // Update values
-  id: String = "";
-  name: String = "";
+
+  rForm: FormGroup;
+  dismissible = true;
+  alerts: any[] = [];
+  isLoading: Boolean = false;
+
+  id: String = '';
+  name: String = '';
+  button: String = 'Submit';
   isUpdate: boolean = false;
 
-  alerts: any[] = [];
-  isLoading: boolean = false;
-  isDisabled: boolean = false;
-
-  constructor(public _dept: DepartmentsService) { }
+  constructor(public _dept: DepartmentsService,
+    public fb: FormBuilder) {
+    this.rForm = fb.group({
+      'name': [null, Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.getAllDept();
@@ -38,95 +44,103 @@ export class DepartmentsComponent implements OnInit {
   }
 
   // Add New Department
-  onSubmit(event) {
-    this.isDisabled = true;
+  onSubmit(post) {
+    this.getAllDept();
     this.isLoading = true;
-    event.preventDefault();
-    const target = event.target;
 
-    if(!this.isUpdate) {
+    if (!this.isUpdate) {
       this.deptRequest = {
-        name: target.querySelector('#deptName').value,
+        name: post.name,
         companyId: localStorage.getItem('companyID')
       }
 
-      this._dept.deptList.push(this.deptRequest);
-      console.log(this._dept.deptList);
-
       this._dept.createDept(this.deptRequest).subscribe(res => {
-        if(res.status == 1) {
+        if (res.status == 1) {
+          this.isLoading = false;
           console.log(res);
           // Department Creation Successful
           this.alerts.push({
-              type: 'success',
-              msg: `${res.message}`,
-              timeout: 5000
-            });
-        } else {
-            this.alerts.push({
-              type: 'warning',
-              msg: `${res.message}`,
-              timeout: 5000
-            });
-        }
-      })
-    } else {
-      this.deptPut = {
-        id: this.id,
-        name: target.querySelector('#deptName').value
-      }
-
-      this._dept.updateDept(this.deptPut).subscribe(res => {
-        if(res.status == 1) {
-          // Department Update Successful
-          this.alerts.push({
-            type: 'info',
+            type: 'success',
             msg: `${res.message}`,
             timeout: 5000
           });
+          this.getAllDept();
         } else {
+          this.isLoading = false;
+          console.log(res);
           this.alerts.push({
             type: 'warning',
             msg: `${res.message}`,
             timeout: 5000
           });
         }
-      })
+      });
+    } else {
+      this.deptPut = {
+        id: this.id,
+        name: post.name
+      }
+
+      this._dept.updateDept(this.deptPut).subscribe(res => {
+        if (res.status == 1) {
+          this.isLoading = false;
+          console.log(res);
+          // Department Update Successful
+          this.alerts.push({
+            type: 'info',
+            msg: `${res.message}`,
+            timeout: 5000
+          });
+          this.getAllDept();
+        } else {
+          this.isLoading = false;
+          console.log(res);
+          this.alerts.push({
+            type: 'warning',
+            msg: `${res.message}`,
+            timeout: 5000
+          });
+        }
+      });
     }
+    this.rForm.reset();
+    this.button = 'submit';
 
-    this.isUpdate = false;
-    this.isLoading = false;
-    this.isDisabled = false;
-
-    // this.getAllDept();
   }
 
   onUpdate(id: String, name: String) {
+    this.button = 'Update';
     this.id = id;
     this.name = name;
+    this.rForm.reset();
     this.isUpdate = true;
   }
 
   onDelete(id: String) {
-    
+    this.isLoading = true;
     this.deptDelete = {
       id: id
     }
 
     this._dept.deleteDept(this.deptDelete).subscribe(res => {
       // Department Deleted
+      this.isLoading = false;
       this.alerts.push({
         type: 'danger',
         msg: `${res.message}`,
         timeout: 5000
       });
-    })
+      this.getAllDept();
+    });
 
-    this.getAllDept();
+    this.rForm.reset();
   }
 
   reload() {
     window.location.reload();
   }
 
+  onClosed(dismissedAlert: any): void {
+    this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
+  }
 }
