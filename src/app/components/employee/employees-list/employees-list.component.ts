@@ -15,7 +15,7 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
     this._dept.getDept(localStorage.getItem('companyID'));
-    console.log(this._dept.deptList[0])
+    this._emp.getAllEmp(localStorage.getItem('companyID'));
   }
 
   onChange(data) {

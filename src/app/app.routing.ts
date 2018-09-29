@@ -19,26 +19,27 @@ import { CategoriesService } from './services/category/categories.service';
 import { CategoryComponent } from './components/category/category.component';
 import { EmployeesListComponent } from './components/employee/employees-list/employees-list.component';
 import { SkillsComponent } from './components/skill/skills/skills.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/register', component: RegisterComponent },
-  { path: 'project/projects', component: ProjectsComponent },
-  { path: 'project/project-details', component: ProjectDetailsComponent },
-  { path: 'employee/employees', component: EmployeesComponent},
-  { path: 'employee/employee-details/:id', component: EmployeeDetailsComponent },
-  { path: 'employee/employees-list', component: EmployeesListComponent },
-  { path: 'task/tasks', component: TasksComponent },
-  { path: 'task/tasks-list', component: TasksListComponent},
-  { path: 'task/task-details', component: TaskDetailsComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'report', component: ReportComponent },
-  { path: 'scheduler', component: SchedulerComponent },
-  { path: 'department/departments', component: DepartmentsComponent },
-  { path: 'designation', component: DesignationComponent },
-  { path: 'category', component: CategoryComponent },
-  { path: 'skill', component: SkillsComponent},
+  { path: 'project/projects', component: ProjectsComponent, canActivate: [AuthGuard] },
+  { path: 'project/project-details', component: ProjectDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'employee/employees', component: EmployeesComponent, canActivate: [AuthGuard] },
+  { path: 'employee/employee-details/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'employee/employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
+  { path: 'task/tasks', component: TasksComponent, canActivate: [AuthGuard] },
+  { path: 'task/tasks-list', component: TasksListComponent, canActivate: [AuthGuard] },
+  { path: 'task/task-details', component: TaskDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'report', component: ReportComponent, canActivate: [AuthGuard] },
+  { path: 'scheduler', component: SchedulerComponent, canActivate: [AuthGuard] },
+  { path: 'department/departments', component: DepartmentsComponent, canActivate: [AuthGuard] },
+  { path: 'designation', component: DesignationComponent, canActivate: [AuthGuard] },
+  { path: 'category', component: CategoryComponent, canActivate: [AuthGuard] },
+  { path: 'skill', component: SkillsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

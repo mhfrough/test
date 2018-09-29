@@ -67,7 +67,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role', res.data.role);
         localStorage.setItem('companyID', res.data.companyId);
         localStorage.setItem('companyName', res.data.companyName);
-        this.router.navigate(['']);
+        this.delay(1000).then(any => {
+          this.router.navigate(['']);
+        });
       } else {
         this.isLoading = false;
         this.alerts.push({
@@ -82,6 +84,10 @@ export class LoginComponent implements OnInit {
 
   onClosed(dismissedAlert: any): void {
     this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
+  }
+
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log("fired"));
   }
 
 }

@@ -24,7 +24,7 @@ export class AuthenticationService {
 
   logOut() {
     localStorage.clear();
-    this.router.navigate(['/auth/login']);
+    window.location.reload();
   }
 
 
